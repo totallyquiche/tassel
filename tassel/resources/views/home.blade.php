@@ -18,11 +18,11 @@
     </head>
     <body class="bg-cyan-900">
         <main class="w-8/12 mx-auto text-slate-300">
-            <h1 class="text-center text-5xl my-12 text-rose-100">Create Something.</h1>
+            <h1 class="text-center text-5xl my-12 text-rose-100">Write Something.</h1>
 
             @livewire('random-prompt')
 
-            <div id="toolbar" class="mt-12 bg-slate-200">
+            <div id="toolbar" class="mt-8 bg-slate-200">
                 <button class="ql-bold"></button>
                 <button class="ql-italic"></button>
                 <button class="ql-underline"></button>

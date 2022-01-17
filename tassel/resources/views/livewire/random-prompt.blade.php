@@ -1,6 +1,6 @@
 <div>
     <span>
-        {{ $text }}
+        <span class="italic text-rose-200">Prompt:</span> {{ $text }}
 
         <button wire:click="$refresh" class="randomPromptButton mx-auto mb-0.5 h-5 w-5 text-pink-500 hover:text-pink-600 inline-block align-middle animateRotate360 cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
