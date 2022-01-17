@@ -59,18 +59,26 @@
                 placeholder: 'Write something...',
             });
 
+            const originalDelta = JSON.stringify(quill.getContents());
+            let currentDelta;
+
             quill.on('text-change', function() {
-                document.getElementById('ql-save-button').disabled = false;
-                document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
+                currentDelta = JSON.stringify(quill.getContents());
+
+                if (currentDelta === originalDelta) {
+                    document.getElementById('ql-save-button').disabled = true;
+                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
+                } else {
+                    document.getElementById('ql-save-button').disabled = false;
+                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
+                }
             });
 
             document.getElementById('ql-save-button').addEventListener('click', function () {
                 document.getElementById('ql-save-button').disabled = true;
                 document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
 
-                const delta = quill.getContents();
-
-                Livewire.emit('saveDelta', JSON.stringify(delta));
+                Livewire.emit('saveDelta', currentDelta);
             });
         </script>
 
