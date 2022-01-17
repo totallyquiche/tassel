@@ -1,3 +1,16 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+body {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.animateRotate360 {
+    transition-duration: 1s;
+    transition-property: transform;
+}
+
+.animateRotate360:hover {
+    transform: rotate(360deg);
+}
