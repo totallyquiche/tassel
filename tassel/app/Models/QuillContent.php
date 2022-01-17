@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class QuillContent extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['delta'];
 }

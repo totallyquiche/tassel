@@ -44,6 +44,8 @@
             </div>
         </main>
 
+        @livewire('quill-content-save-button')
+
         @livewireScripts
 
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -58,8 +60,6 @@
             });
 
             quill.on('text-change', function() {
-                delta = quill.getContents();
-
                 document.getElementById('ql-save-button').disabled = false;
                 document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
             });
@@ -67,6 +67,10 @@
             document.getElementById('ql-save-button').addEventListener('click', function () {
                 document.getElementById('ql-save-button').disabled = true;
                 document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
+
+                const delta = quill.getContents();
+
+                Livewire.emit('saveDelta', JSON.stringify(delta));
             });
         </script>
 
