@@ -64,7 +64,8 @@
         <script>
             tippy('.randomPromptButton', {
                 content: 'Get a new prompt',
-                trigger: 'mouseenter'
+                trigger: 'mouseenter',
+                delay: 500,
             });
         </script>
     </body>
