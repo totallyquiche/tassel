@@ -1049,6 +1049,12 @@ select {
 .mb-12 {
   margin-bottom: 3rem;
 }
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
 .block {
   display: block;
 }
