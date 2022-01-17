@@ -59,7 +59,7 @@
                 placeholder: 'Write something...',
             });
 
-            const originalDelta = JSON.stringify(quill.getContents());
+            let originalDelta = JSON.stringify(quill.getContents());
             let currentDelta;
 
             quill.on('text-change', function() {
@@ -75,6 +75,8 @@
             });
 
             document.getElementById('ql-save-button').addEventListener('click', function () {
+                originalDelta = JSON.stringify(quill.getContents());
+
                 document.getElementById('ql-save-button').disabled = true;
                 document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
 
