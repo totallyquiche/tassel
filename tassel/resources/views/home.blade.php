@@ -53,28 +53,35 @@
                 placeholder: 'Write something...',
             });
 
-            let originalDelta = JSON.stringify(quill.getContents());
-            let currentDelta;
+            const getCurrentDeltaJson = () => JSON.stringify(quill.getContents());
+            let originalDeltaJson = getCurrentDeltaJson();
+            const hasDeltaChanged = () => (getCurrentDeltaJson() !== originalDeltaJson);
 
             quill.on('text-change', function() {
-                currentDelta = JSON.stringify(quill.getContents());
-
-                if (currentDelta === originalDelta) {
-                    document.getElementById('ql-save-button').disabled = true;
-                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
-                } else {
+                if (hasDeltaChanged()) {
                     document.getElementById('ql-save-button').disabled = false;
                     document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
+                } else {
+                    document.getElementById('ql-save-button').disabled = true;
+                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
                 }
             });
 
             document.getElementById('ql-save-button').addEventListener('click', function () {
-                originalDelta = JSON.stringify(quill.getContents());
+                const currentDeltaJson = getCurrentDeltaJson();
+
+                originalDeltaJson = currentDeltaJson;
 
                 document.getElementById('ql-save-button').disabled = true;
                 document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
 
-                Livewire.emit('saveDelta', currentDelta);
+                Livewire.emit('saveDelta', currentDeltaJson);
+            });
+
+            window.addEventListener('beforeunload', (event) => {
+                if (hasDeltaChanged()) {
+                    event.returnValue = 'Are you sure?';
+                }
             });
         </script>
 
