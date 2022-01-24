@@ -32,19 +32,13 @@
                 <button class="ql-list" value="bullet"></button>
                 <button class="ql-link"></button>
                 <button class="ql-clean"></button>
-                <button id="ql-save-button" disabled>
-                    <svg id="ql-save-button-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="lightslategray">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                    </svg>
-                </button>
+                @livewire('quill-content-save-button')
             </div>
 
             <div class="text-slate-800 mt-4 mb-12 bg-slate-300 h-96 overflow-auto">
                 <div id="editor"></div>
             </div>
         </main>
-
-        @livewire('quill-content-save-button')
 
         @livewireScripts
 
