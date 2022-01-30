@@ -23,5 +23,7 @@ class SaveDraftButton extends Component
             'prompt_id' => $prompt_id,
             'user_id' => $user->id
         ]))->save();
+
+        $this->emitTo('draft-cards', '$refresh');
     }
 }

@@ -49,9 +49,7 @@
             <section>
                 <h2 class="text-center text-3xl my-12 text-rose-100">Drafts</h2>
 
-                @foreach (App\Models\Draft::orderBy('updated_at', 'desc')->get()->unique('prompt_id') as $draft)
-                    @livewire('draft-card', ['draft' => $draft])
-                @endforeach
+                @livewire('draft-cards')
             </section>
         </main>
 
