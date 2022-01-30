@@ -14,8 +14,11 @@ use App\Http\Controllers\PromptController;
 |
 */
 
-Route::get('/', fn() => view('home'));
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    Route::get('/prompt/{id}', [PromptController::class, 'index'])
+        ->whereNumber('id')
+        ->name('prompt');
+    Route::get('/prompt/random', [PromptController::class, 'random'])
+        ->name('prompt.random');
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
 });

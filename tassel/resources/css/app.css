@@ -6,11 +6,6 @@ body {
     font-family: 'Libre Baskerville', serif;
 }
 
-.animateRotate360 {
-    transition-duration: 1s;
-    transition-property: transform;
-}
-
-.animateRotate360:hover {
-    transform: rotate(360deg);
+a {
+    @apply underline text-blue-200 hover:text-blue-400 visited:text-purple-500
 }

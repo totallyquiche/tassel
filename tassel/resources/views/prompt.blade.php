@@ -18,9 +18,15 @@
     </head>
     <body class="bg-cyan-900">
         <main class="w-8/12 mx-auto text-slate-300">
-            <h1 class="text-center text-5xl my-12 text-rose-100">Write Something.</h1>
+            <a href="{{ route('prompt.random') }}">
+                <h1 class="text-center text-5xl my-12 text-rose-100">Write Something.</h1>
+            </a>
 
-            @livewire('random-prompt')
+            <span>
+                <span class="italic text-rose-200">Prompt:</span>
+
+                {{ $prompt->text }}
+            </span>
 
             <div id="toolbar" class="mt-8 bg-slate-300">
                 <button class="ql-bold"></button>
@@ -32,12 +38,21 @@
                 <button class="ql-list" value="bullet"></button>
                 <button class="ql-link"></button>
                 <button class="ql-clean"></button>
-                @livewire('quill-content-save-button')
+                @livewire('save-draft-button')
+                @livewire('delete-drafts-button')
             </div>
 
             <div class="text-slate-800 mt-4 mb-12 bg-slate-300 h-96 overflow-auto">
                 <div id="editor"></div>
             </div>
+
+            <section>
+                <h2 class="text-center text-3xl my-12 text-rose-100">Drafts</h2>
+
+                @foreach (App\Models\Draft::orderBy('updated_at', 'desc')->get()->unique('prompt_id') as $draft)
+                    @livewire('draft-card', ['draft' => $draft])
+                @endforeach
+            </section>
         </main>
 
         @livewireScripts
@@ -53,18 +68,24 @@
                 placeholder: 'Write something...',
             });
 
+            quill.setContents({!! $delta !!});
+
             const getCurrentDeltaJson = () => JSON.stringify(quill.getContents());
             let originalDeltaJson = getCurrentDeltaJson();
             const hasDeltaChanged = () => (getCurrentDeltaJson() !== originalDeltaJson);
 
+            const enableSaveButton = () => {
+                document.getElementById('ql-save-button').disabled = false;
+                document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
+            };
+
+            const disableSaveButton = () => {
+                document.getElementById('ql-save-button').disabled = true;
+                document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
+            };
+
             quill.on('text-change', function() {
-                if (hasDeltaChanged()) {
-                    document.getElementById('ql-save-button').disabled = false;
-                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'blue');
-                } else {
-                    document.getElementById('ql-save-button').disabled = true;
-                    document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
-                }
+                hasDeltaChanged() ? enableSaveButton() : disableSaveButton();
             });
 
             document.getElementById('ql-save-button').addEventListener('click', function () {
@@ -72,27 +93,32 @@
 
                 originalDeltaJson = currentDeltaJson;
 
-                document.getElementById('ql-save-button').disabled = true;
-                document.getElementById('ql-save-button-icon').setAttribute('stroke', 'lightslategray');
+                disableSaveButton();
 
-                Livewire.emit('saveDelta', currentDeltaJson);
+                Livewire.emit(
+                    'saveDelta',
+                    currentDeltaJson,
+                    {{ $prompt->id }}
+                );
             });
 
-            window.addEventListener('beforeunload', (event) => {
-                if (hasDeltaChanged()) {
-                    event.returnValue = 'Are you sure?';
+            document.getElementById('ql-delete-drafts-button').addEventListener('click', function () {
+                const shouldDeleteDrafts = confirm('Are you sure you want to delete this draft?');
+
+                if (shouldDeleteDrafts) {
+                    Livewire.emit(
+                        'deleteDrafts',
+                        {{ $prompt->id }}
+                    );
                 }
             });
-        </script>
 
-        <script src="https://unpkg.com/@popperjs/core@2"></script>
-        <script src="https://unpkg.com/tippy.js@6"></script>
+            const confirmPromptText = 'Are you sure you want a new prompt?\nYou will lose any unsaved changes.';
 
-        <script>
-            tippy('.randomPromptButton', {
-                content: 'Get a new prompt',
-                trigger: 'mouseenter',
-                delay: 500,
+            window.addEventListener('beforeunload', (event) => {
+                if (event.target.activeElement.id !== 'ql-delete-drafts-button' && hasDeltaChanged()) {
+                    event.returnValue = confirmPromptText;
+                }
             });
         </script>
     </body>
