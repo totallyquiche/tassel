@@ -17,7 +17,7 @@
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     </head>
     <body class="bg-cyan-900">
-        <main class="w-8/12 mx-auto text-slate-300">
+        <main class="w-11/12 mx-auto text-slate-300">
             <a href="{{ route('prompt.random') }}">
                 <h1 class="text-center text-5xl my-12 text-rose-100">Write Something.</h1>
             </a>
