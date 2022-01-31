@@ -1,62 +1,45 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Tassel</title>
-
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-        @livewireStyles
-
+<x-app-layout>
+    @push('css')
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    </head>
-    <body class="bg-cyan-900">
-        <main class="xl:w-9/12 lg:w-10/12 w-11/12 mx-auto text-slate-300">
-            <a href="{{ route('prompt.random') }}">
-                <h1 class="text-center text-5xl my-12 text-rose-100">Write Something.</h1>
-            </a>
+    @endpush
 
-            <span>
-                <span class="italic text-rose-200">Prompt:</span>
+    <x-slot name="header">
+        <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt.random') }}">Write Something.</a>
+    </x-slot>
 
-                {{ $prompt->text }}
-            </span>
+    <span>
+        <span class="italic text-rose-200">Prompt:</span>
 
-            <div id="toolbar" class="mt-8 bg-slate-300">
-                <button class="ql-bold"></button>
-                <button class="ql-italic"></button>
-                <button class="ql-underline"></button>
-                <select class="ql-font"><select>
-                <select class="ql-header"><select>
-                <button class="ql-list" value="ordered"></button>
-                <button class="ql-list" value="bullet"></button>
-                <button class="ql-link"></button>
-                <button class="ql-clean"></button>
-                @livewire('save-draft-button')
-                @livewire('delete-drafts-button')
-            </div>
+        {{ $prompt->text }}
+    </span>
 
-            <div class="text-slate-800 mt-4 mb-12 bg-slate-300 h-96 overflow-auto">
-                <div id="editor"></div>
-            </div>
+    <div id="toolbar" class="mt-8 bg-slate-200">
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <select class="ql-font"><select>
+        <select class="ql-header"><select>
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-link"></button>
+        <button class="ql-clean"></button>
+        @livewire('save-draft-button')
+        @livewire('delete-drafts-button')
+    </div>
 
-            <section>
-                <h2 class="text-center text-3xl my-12 text-rose-100">Drafts</h2>
+    <div class="text-slate-800 mt-4 mb-12 bg-slate-200 h-96 overflow-auto">
+        <div id="editor"></div>
+    </div>
 
-                @livewire('draft-cards')
-            </section>
+    <section>
+        <h2 class="text-center text-3xl my-12 text-rose-100">Drafts</h2>
 
-            <br/><br/>
-        </main>
+        @livewire('draft-cards')
+    </section>
 
-        @livewireScripts
+    <br/><br/>
 
+    @push('js')
         <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
         <script>
@@ -121,5 +104,5 @@
                 }
             });
         </script>
-    </body>
-</html>
+    @endpush
+</x-app-layout>

@@ -6,7 +6,7 @@
             @foreach ($drafts as $draft)
                 <div class="mb-2 p-4 text-slate-400 text-sm">
                     <div class="mb-2">
-                        <a href="{{ route('prompt', ['id' => $draft->Prompt->id]) }}">{{ date('m/d/y \a\t g:i a', strtotime($draft->updated_at)) }}</a>
+                        <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt', ['id' => $draft->Prompt->id]) }}">{{ date('m/d/y \a\t g:i a', strtotime($draft->updated_at)) }}</a>
                     </div>
                     <span class="italic font-bold">Prompt:</span> {{ $draft->Prompt->text }}
                 </div>

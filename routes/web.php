@@ -14,7 +14,7 @@ use App\Http\Controllers\PromptController;
 |
 */
 
-Route::get('/', fn() => redirect(route('dashboard')));
+Route::get('/', fn() => redirect(route('drafts')));
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/prompt/{id}', [PromptController::class, 'index'])
@@ -23,4 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/prompt/random', [PromptController::class, 'random'])
         ->name('prompt.random');
     Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+    Route::get('/drafts', fn() => view('drafts'))->name('drafts');
 });
