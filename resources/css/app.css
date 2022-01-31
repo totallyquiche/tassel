@@ -7,5 +7,5 @@ body {
 }
 
 a {
-    @apply underline text-blue-200 hover:text-blue-400 visited:text-purple-500
+    @apply underline text-blue-200 hover:text-blue-400
 }
