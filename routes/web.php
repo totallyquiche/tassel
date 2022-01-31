@@ -14,6 +14,8 @@ use App\Http\Controllers\PromptController;
 |
 */
 
+Route::get('/', fn() => redirect(route('dashboard')));
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/prompt/{id}', [PromptController::class, 'index'])
         ->whereNumber('id')
