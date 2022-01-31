@@ -51,6 +51,8 @@
 
                 @livewire('draft-cards')
             </section>
+
+            <br/><br/>
         </main>
 
         @livewireScripts
