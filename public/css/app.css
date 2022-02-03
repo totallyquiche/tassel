@@ -1423,6 +1423,12 @@ select {
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
+.bg-\[url\(\'\/img\/hero-pattern\.svg\'\)\] {
+  background-image: url('/img/hero-pattern.svg');
+}
+.bg-\[url\(\'\/path\'\)\] {
+  background-image: url('/path');
+}
 .bg-cover {
   background-size: cover;
 }
@@ -1725,6 +1731,15 @@ select {
 }
 .opacity-50 {
   opacity: 0.5;
+}
+.opacity-\[90\] {
+  opacity: 90;
+}
+.opacity-\[0\.9\] {
+  opacity: 0.9;
+}
+.opacity-\[0\.95\] {
+  opacity: 0.95;
 }
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -2281,3 +2296,4 @@ body {
     width: 75%;
   }
 }
+
