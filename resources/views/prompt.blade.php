@@ -7,7 +7,7 @@
         <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt.random') }}">Write Something.</a>
     </x-slot>
 
-    <div id="overlay" class="absolute top-0 left-0 right-0 bottom-0 w-full h-0 z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: height 0.20s ease-in-out;');"></div>
+    <div id="overlay" class="fixed top-0 left-0 right-0 bottom-0 w-full h-0 z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: height 0.20s ease-in-out;');"></div>
 
     <span>
         <span class="italic text-rose-200">Prompt:</span>
