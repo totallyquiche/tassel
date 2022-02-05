@@ -7,7 +7,9 @@
         <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt.random') }}">Write Something.</a>
     </x-slot>
 
-    <div id="overlay" class="fixed top-0 left-0 right-0 bottom-0 w-full h-0 z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: height 0.20s ease-in-out;');"></div>
+    <div id="overlay" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: top 0.20s ease-in-out;');">
+        <img class="max-h-full mx-auto" src="{{ asset('storage/images/logo-white.png') }}" />
+    </div>
 
     <span>
         <span class="italic text-rose-200">Prompt:</span>
@@ -109,14 +111,14 @@
             document.addEventListener('keydown', (event) => {
                 if (event.key === 'Escape') {
                     const overlay = document.querySelector('#overlay');
-                    const height = overlay.style.height;
+                    const top = overlay.style.top;
 
-                    overlay.style.height = ((!height || height === '0px') ? '100%' : 0);
+                    overlay.style.top = ((!top || top === '0px') ? '-100%' : 0);
                 }
             });
 
             document.querySelector('#overlay').addEventListener('click', function(event) {
-                this.style.height = 0;
+                this.style.top = '-100%';
             });
         </script>
     @endpush
