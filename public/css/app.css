@@ -1094,14 +1094,14 @@ select {
 .h-20 {
   height: 5rem;
 }
-.h-full {
-  height: 100%;
+.h-0 {
+  height: 0px;
 }
 .h-96 {
   height: 24rem;
 }
-.h-0 {
-  height: 0px;
+.h-full {
+  height: 100%;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1408,13 +1408,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
 .bg-cyan-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(22 78 99 / var(--tw-bg-opacity));
+}
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 .bg-slate-300 {
   --tw-bg-opacity: 1;
@@ -1422,12 +1422,6 @@ select {
 }
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
-}
-.bg-\[url\(\'\/img\/hero-pattern\.svg\'\)\] {
-  background-image: url('/img/hero-pattern.svg');
-}
-.bg-\[url\(\'\/path\'\)\] {
-  background-image: url('/path');
 }
 .bg-cover {
   background-size: cover;
@@ -1731,12 +1725,6 @@ select {
 }
 .opacity-50 {
   opacity: 0.5;
-}
-.opacity-\[90\] {
-  opacity: 90;
-}
-.opacity-\[0\.9\] {
-  opacity: 0.9;
 }
 .opacity-\[0\.95\] {
   opacity: 0.95;
