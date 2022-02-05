@@ -7,7 +7,7 @@
         <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt.random') }}">Write Something.</a>
     </x-slot>
 
-    <div id="overlay" class="fixed top-0 left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: top 0.20s ease-in-out;');">
+    <div id="overlay" class="fixed top-[-100%] left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: top 0.20s ease-in-out;');">
         <img class="max-h-full mx-auto" src="{{ asset('storage/images/logo-white.png') }}" />
     </div>
 
@@ -113,7 +113,7 @@
                     const overlay = document.querySelector('#overlay');
                     const top = overlay.style.top;
 
-                    overlay.style.top = ((!top || top === '0px') ? '-100%' : 0);
+                    overlay.style.top = ((!top || top === '-100%') ? 0 : '-100%');
                 }
             });
 
