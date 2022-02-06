@@ -6,3 +6,8 @@ body {
     font-family: 'Libre Baskerville', serif;
     display: none;
 }
+
+.ql-editor {
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.75em;
+}
