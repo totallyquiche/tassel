@@ -39,7 +39,7 @@
             @endif
 
             <!-- Page Content -->
-            <main class="xl:w-9/12 lg:w-10/12 w-11/12 mx-auto text-slate-300">
+            <main class="xl:w-9/12 lg:w-10/12 w-11/12 mx-auto">
                 {{ $slot }}
             </main>
         </div>

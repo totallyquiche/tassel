@@ -11,32 +11,38 @@
         <img class="max-h-full mx-auto" src="{{ asset('storage/images/logo-white.png') }}" />
     </div>
 
-    <span>
+    <span class="text-slate-300">
         <span class="italic text-rose-200">Prompt:</span>
 
         {{ $prompt->text }}
     </span>
 
-    <div id="toolbar" class="mt-8 bg-slate-200">
-        <button class="ql-bold"></button>
-        <button class="ql-italic"></button>
-        <button class="ql-underline"></button>
-        <select class="ql-font"><select>
-        <select class="ql-header"><select>
-        <button class="ql-list" value="ordered"></button>
-        <button class="ql-list" value="bullet"></button>
-        <button class="ql-link"></button>
-        <button class="ql-clean"></button>
-        <button id="toggle-overlay-button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="lightslategray">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-            </svg>
-        </button>
-        @livewire('save-draft-button')
-        @livewire('delete-drafts-button')
+    <div id="toolbar" class="mt-8 bg-slate-100">
+        <span class="ql-formats">
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+            <button class="ql-strike"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-list" value="ordered"></button>
+            <button class="ql-list" value="bullet"></button>
+        </span>
+        <span class="ql-formats">
+            <button class="ql-clean"></button>
+        </span>
+        <span class="ql-formats float-right">
+            <button id="toggle-overlay-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="lightslategray">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                </svg>
+            </button>
+            @livewire('save-draft-button')
+            @livewire('delete-drafts-button')
+        </span>
     </div>
 
-    <div class="text-slate-800 mt-4 mb-12 bg-slate-200 h-96 overflow-auto">
+    <div class="text-slate-900 mt-4 mb-12 bg-slate-100 h-96 overflow-auto">
         <div id="editor"></div>
     </div>
 
