@@ -3,9 +3,7 @@
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     @endpush
 
-    <x-slot name="header">
-        <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt.random') }}">Write Something.</a>
-    </x-slot>
+    <x-slot name="header">Write Something.</x-slot>
 
     <div id="overlay" class="fixed top-[-100%] left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: top 0.20s ease-in-out;');">
         <img class="max-h-full mx-auto" src="{{ asset('storage/images/logo-white.png') }}" />
