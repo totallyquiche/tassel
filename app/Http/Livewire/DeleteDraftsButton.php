@@ -3,21 +3,22 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\QuillContent;
 use App\Models\Draft;
 
 class DeleteDraftsButton extends Component
 {
     protected $listeners = ['deleteDrafts'];
 
-    public function deleteDrafts(int $prompt_id)
+    public int $prompt_id;
+
+    public function deleteDrafts()
     {
         $user = auth()->user();
 
-        Draft::where('prompt_id', $prompt_id)
+        Draft::where('prompt_id', $this->prompt_id)
             ->where('user_id', $user->id)
             ->delete();
 
-        redirect(route('prompt', [$prompt_id]));
+        redirect(route('prompt', [$this->prompt_id]));
     }
 }
