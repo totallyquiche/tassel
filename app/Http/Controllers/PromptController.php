@@ -10,18 +10,14 @@ use App\Models\QuillContent;
 class PromptController extends Controller
 {
     public function index(Request $request, int $prompt_id) {
-        $prompt = Prompt::find($prompt_id);
+        $prompt = Prompt::with('draft')->find($prompt_id);
+        $draft = $prompt->draft;
         $user = auth()->user();
         $delta = null;
 
         if (is_null($prompt)) {
             return redirect(route('dashboard'));
         }
-
-        $draft = Draft::where('prompt_id', $prompt->id)
-            ->where('user_id', $user->id)
-            ->orderBy('updated_at', 'desc')
-            ->first();
 
         if (!is_null($draft)) {
             $delta = QuillContent::find($draft->quill_content_id)->delta;
