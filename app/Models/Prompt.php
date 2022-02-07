@@ -11,6 +11,6 @@ class Prompt extends Model
     use HasFactory;
 
     public function draft() {
-        return $this->hasOne(Draft::class);
+        return $this->hasOne(Draft::class)->orderByDesc('updated_at');
     }
 }
