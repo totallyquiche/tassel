@@ -35,8 +35,14 @@ class PromptController extends Controller
     }
 
     public function random() {
-        $prompt = Prompt::inRandomOrder()->first();
-        $user = auth()->user();
+        $user_id = auth()->user()->id;
+
+        $prompt = Prompt::inRandomOrder()
+            ->leftJoin('drafts', 'drafts.id', '=', 'prompts.id')
+            ->where('drafts.user_id', '!=', $user_id)
+            ->orWhereNull('drafts.user_id')
+            ->get('prompts.id')
+            ->first();
 
         return redirect(route('prompt', ['id' => $prompt->id]));
     }
