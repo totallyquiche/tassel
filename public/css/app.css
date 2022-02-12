@@ -1917,6 +1917,18 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+.hover\:stroke-slate-100:hover {
+  stroke: #f1f5f9;
+}
+.hover\:stroke-slate-900:hover {
+  stroke: #0f172a;
+}
+.hover\:stroke-\[\#06c\]:hover {
+  stroke: #06c;
+}
+.hover\:stroke-\[darkred\]:hover {
+  stroke: darkred;
+}
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
