@@ -7,15 +7,17 @@
                     <img class="h-full p-2" src="{{ asset('storage/images/logo-transparent.png') }}"/>
                 </a>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('prompt.random') }}">
-                        {{ __('Random Prompt') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('drafts') }}" :active="request()->routeIs('drafts')">
-                        {{ __('Drafts') }}
-                    </x-jet-nav-link>
-                </div>
+                @auth
+                    <!-- Navigation Links -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('prompt.random') }}">
+                            {{ __('Random Prompt') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('drafts') }}" :active="request()->routeIs('drafts')">
+                            {{ __('Drafts') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endauth
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -143,14 +145,16 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('prompt.random') }}">
-                {{ __('Random Prompt') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('drafts') }}" :active="request()->routeIs('drafts')">
-                {{ __('Drafts') }}
-            </x-jet-responsive-nav-link>
-        </div>
+        @auth
+            <div class="pt-2 pb-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('prompt.random') }}">
+                    {{ __('Random Prompt') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('drafts') }}" :active="request()->routeIs('drafts')">
+                    {{ __('Drafts') }}
+                </x-jet-responsive-nav-link>
+            </div>
+        @endauth
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
