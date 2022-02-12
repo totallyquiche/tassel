@@ -9,8 +9,8 @@
         <img class="max-h-[25%]" src="{{ asset('storage/images/logo-white.png') }}" />
     </div>
 
-    <span class="text-slate-300">
-        <span class="italic text-rose-200">Prompt:</span>
+    <span class="text-slate-100">
+        <span class="italic font-bold text-rose-100">Prompt:</span>
 
         {{ $prompt->text }}
     </span>

@@ -4,7 +4,7 @@
             <span class="text-slate-400 italic">Nothing to see here</span>
         @else
             @foreach ($drafts as $draft)
-                <div class="mb-2 p-4 text-slate-400 text-sm">
+                <div class="mb-2 p-4 text-slate-400 text-md">
                     <div class="flex mb-2">
                         <a class="underline text-blue-200 hover:text-blue-400" href="{{ route('prompt', ['id' => $draft->Prompt->id]) }}">{{ date('m/d/y \a\t g:i a', strtotime($draft->updated_at)) }}</a>
                         &nbsp;&nbsp;
