@@ -21,4 +21,11 @@ class DraftCards extends Component
 
         return view('livewire.draft-cards');
     }
+
+    public function deleteDraft(int $draft_id)
+    {
+        Draft::where('id', $draft_id)
+            ->where('user_id', auth()->user()->id)
+            ->delete();
+    }
 }
