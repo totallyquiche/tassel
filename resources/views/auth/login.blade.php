@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{ route('home') }}" title="Tassel home page">
+                <img class="h-20 p-2" src="{{ asset('storage/images/logo-white.png') }}"/>
+            </a>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

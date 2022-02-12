@@ -14,7 +14,7 @@ use App\Http\Controllers\PromptController;
 |
 */
 
-Route::get('/', fn() => redirect(route('drafts')));
+Route::get('/', fn() => redirect(route('drafts')))->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/prompt/{id}', [PromptController::class, 'index'])
