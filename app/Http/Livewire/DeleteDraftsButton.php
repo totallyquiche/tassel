@@ -9,7 +9,7 @@ class DeleteDraftsButton extends Component
 {
     protected $listeners = ['deleteDrafts'];
 
-    public int $prompt_id;
+    public string $prompt_id;
 
     public function deleteDrafts()
     {

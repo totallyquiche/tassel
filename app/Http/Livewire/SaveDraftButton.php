@@ -10,7 +10,7 @@ class SaveDraftButton extends Component
 {
     protected $listeners = ['saveDelta'];
 
-    public int $prompt_id;
+    public string $prompt_id;
 
     public function saveDelta(string $delta)
     {

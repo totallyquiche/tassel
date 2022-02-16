@@ -14,7 +14,7 @@ class CreatePromptsTable extends Migration
     public function up()
     {
         Schema::create('prompts', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->text('text');
             $table->timestamps();
         });

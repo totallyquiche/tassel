@@ -18,7 +18,7 @@ Route::get('/', fn() => view('home'))->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/prompt/{id}', [PromptController::class, 'index'])
-        ->whereNumber('id')
+        ->whereUuid('id')
         ->name('prompt');
     Route::get('/prompt/random', [PromptController::class, 'random'])
         ->name('prompt.random');
