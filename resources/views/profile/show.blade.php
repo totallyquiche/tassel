@@ -1,3 +1,5 @@
+@section('title', config('app.name') . ' - Profile')
+
 <x-app-layout>
     <x-slot name="header">{{ __('Profile') }}</x-slot>
 

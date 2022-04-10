@@ -1,3 +1,5 @@
+@section('title', config('app.name') . ' - Confirm Password')
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">

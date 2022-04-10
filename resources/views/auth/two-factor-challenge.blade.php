@@ -1,3 +1,5 @@
+@section('title', config('app.name') . ' - Two-Factor Challenge')
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
