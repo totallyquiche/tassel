@@ -10,5 +10,6 @@ Tassel Writer presents you with a prompt and an editor and let's you do your thi
 
 - Cloud saving
 - Drafts
+- Quick-access privacy screen
 - Thousands of prompts
 - 2-Factor Authentication
