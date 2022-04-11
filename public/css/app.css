@@ -1046,14 +1046,14 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
-.-mt-px {
-  margin-top: -1px;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 .mb-12 {
   margin-bottom: 3rem;
 }
-.mb-2 {
-  margin-bottom: 0.5rem;
+.-mt-px {
+  margin-top: -1px;
 }
 .block {
   display: block;
@@ -1216,6 +1216,12 @@ select {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .list-inside {
   list-style-position: inside;
@@ -1676,17 +1682,17 @@ select {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
 }
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+.text-blue-200 {
+  --tw-text-opacity: 1;
+  color: rgb(191 219 254 / var(--tw-text-opacity));
+}
 .text-rose-100 {
   --tw-text-opacity: 1;
   color: rgb(255 228 230 / var(--tw-text-opacity));
-}
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
-}
-.text-gray-300 {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .text-slate-100 {
   --tw-text-opacity: 1;
@@ -1696,13 +1702,13 @@ select {
   --tw-text-opacity: 1;
   color: rgb(15 23 42 / var(--tw-text-opacity));
 }
-.text-slate-400 {
+.text-gray-200 {
   --tw-text-opacity: 1;
-  color: rgb(148 163 184 / var(--tw-text-opacity));
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
-.text-blue-200 {
+.text-gray-300 {
   --tw-text-opacity: 1;
-  color: rgb(191 219 254 / var(--tw-text-opacity));
+  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -1846,14 +1852,14 @@ img {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
-.hover\:stroke-\[\#06c\]:hover {
-  stroke: #06c;
+.hover\:stroke-red-400:hover {
+  stroke: #f87171;
 }
 .hover\:stroke-\[darkred\]:hover {
   stroke: darkred;
 }
-.hover\:stroke-red-400:hover {
-  stroke: #f87171;
+.hover\:stroke-\[\#06c\]:hover {
+  stroke: #06c;
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;

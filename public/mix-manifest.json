@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/prompt.js": "/js/prompt.js",
+    "/js/DeltaManager.js": "/js/DeltaManager.js",
+    "/js/Overlay.js": "/js/Overlay.js",
     "/css/app.css": "/css/app.css"
 }

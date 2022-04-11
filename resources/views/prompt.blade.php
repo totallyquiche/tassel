@@ -7,7 +7,7 @@
 
     <x-slot name="header">Write Something.</x-slot>
 
-    <div id="overlay" class="flex items-center justify-center fixed top-[-100%] left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95]" style="transition: top 0.20s ease-in-out;');">
+    <div id="overlay" class="flex items-center justify-center fixed top-[-100%] left-0 right-0 bottom-0 w-full h-full z-50 cursor-pointer bg-cyan-900 opacity-[0.95] select-none" style="transition: top 0.20s ease-in-out;');">
         <img class="max-h-[25%]" src="{{ asset('storage/images/logo-white.png') }}" />
     </div>
 
@@ -55,20 +55,19 @@
     <br/><br/>
 
     @push('js')
-        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-
+        <script src='https://cdn.quilljs.com/1.3.6/quill.js'></script>
         <script>
-            const quill = new Quill('#editor', {
-                theme: 'snow',
-                modules: {
-                    toolbar: '#toolbar',
-                },
-                placeholder: 'Write something...',
+            var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: '#toolbar',
+            },
+            placeholder: 'Write something...',
             });
-
+        </script>
+        <script>
             quill.setContents({!! $delta !!});
         </script>
-
         <script src="{{ mix('js/prompt.js') }}"></script>
     @endpush
 </x-app-layout>
